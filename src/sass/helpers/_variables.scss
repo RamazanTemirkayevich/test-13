@@ -5,7 +5,8 @@ $tablet: 767;
 $desktop: 1024;
 
 // fonts
-$font-main: "pn", sans-serif;
+$font-main: "mw", sans-serif;
+$font-second: "gt", sans-serif;
 
 $max-width: 1200px;
 
@@ -13,10 +14,15 @@ $max-width: 1200px;
   --black: #000000;
   --white: #FFFFFF;
 
-  --primary-500: #09AF78;
+  --primary-500: #F54932;
 
-  --gray-100: #F7F7F7;
-  --gray-200: #EEEEEE;
+  --black-100: #313131;
+  --black-200: #1F1F1F;
+
+  --blue-100: #3057A2;
+
+  --beige: #E9DED4;
+  --orange: #FBCE51;
 
   // border radius
   --br--3: 3px;
@@ -28,4 +34,5 @@ $max-width: 1200px;
   --br--20: 20px;
   --br--25: 25px;
   --br--30: 30px;
+  --br--66: 66px;
 }
