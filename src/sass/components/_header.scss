@@ -5,10 +5,12 @@
     align-items: flex-start;
 
     padding-top: 18px;
+    z-index: 13;
 
     &__wrap-logo a {
         display: flex;
         align-items: center;
+        padding-left: 20px;
 
         width: 213px;
         height: 32px;

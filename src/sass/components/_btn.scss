@@ -6,20 +6,42 @@
     width: 100%;
     padding: 13.2px 20px;
 
+    text-align: center;
     font-family: $font-second;
     font-weight: 500;
     line-height: 130%; 
 
     border-radius: var(--br--66);
+    transition: .3s all ease;
 
     &--black {
         background-color: var(--black-200);
         color: var(--white);
+
+        &:hover {
+            background-color: var(--orange);
+            color: var(--black-200);
+        }
     }
 
     &--light {
         background-color: var(--white);
         color: var(--black-200);
         opacity: 0.9;
+
+        &:hover {
+            opacity: initial;
+        }
+    }
+
+    &--transparent {
+        border: 2px solid var(--black-200);
+        color: var(--black-200);
+
+        &:hover {
+            border: none;
+            background-color: var(--black-200);
+            color: var(--white);
+        }
     }
 }

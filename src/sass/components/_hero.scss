@@ -8,15 +8,18 @@
     overflow: hidden;
 
     &__info {
+        position: static;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
+        z-index: 12;
 
         h1 {
             display: flex;
             flex-direction: column;
 
-            width: 335px;
+            width: 100%;
 
             font-size: 36px;
             line-height: 110%;
@@ -54,22 +57,119 @@
         width: 100%;
     }
 
-    &__img {
+    &__bg {
         position: absolute;
 
-        display: flex;
+        top: 0;
+        left: 0;
 
-        bottom: 0;
-        right: 0;
+        width: 100%;
+        height: 100%;
 
-        width: 885px;
+        z-index: 11;
 
-        z-index: -1;
+        aspect-ratio: 1/1;
+
+        mix-blend-mode: color-burn;
 
         img {
             width: 100%;
-            height: 100%;
             object-fit: contain;
         }
     }
+
+    &__mask {
+        position: absolute;
+
+        left: 50%;
+        bottom: 21px;
+
+        transform: translateX(-50%);
+
+        width: 100%;
+        aspect-ratio: 1/1;
+
+        z-index: 10;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__chees {
+        position: absolute;
+
+        left: 49%;
+        bottom: 30px;
+
+        width: 76px;
+        height: 121px;
+
+        transform: translateX(-49%);
+        z-index: 12;
+
+        aspect-ratio: 1/1;
+    }
+
+    &__tricker-wrapper {
+        position: absolute;
+        
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        height: 38px;
+
+        background-color: var(--primary-500);
+        overflow: hidden;
+        z-index: 12;
+    }
+
+    &__tricker-first, &__tricker-second {
+        display: flex;
+        align-items: center;
+
+        animation: marquee 45s linear infinite;
+
+        span {
+            position: relative;
+            padding-right: 36px;
+            white-space: nowrap;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+        
+        span::before {
+            position: absolute;
+
+            content: '';
+
+            top: 35%;
+            right: 15px;
+
+            width: 6px;
+            height: 6px;
+
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+    }
+
+    &__tricker-second {
+        animation: 30s marquee 30s/2 infinite linear forwards;
+    }
+
+    @keyframes marquee {
+        from {
+            transform: translate(0);
+        }
+        
+        to {
+            transform: translate(-100%);
+        }
+    } 
 }
