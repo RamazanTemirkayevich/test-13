@@ -39,9 +39,14 @@
         color: var(--black-200);
 
         &:hover {
-            border: none;
             background-color: var(--black-200);
             color: var(--white);
         }
+    }
+}
+
+@include rmin($desktop) {
+    .btn {
+        padding: 15px 50px;
     }
 }

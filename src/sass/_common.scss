@@ -47,4 +47,9 @@ body {
     a {
         text-decoration: none;
     }
+
+    @include rmin($desktop) {
+        padding-left: 72px;
+        padding-right: 72px;
+    }
 }

@@ -55,12 +55,30 @@
         gap: 14px;
 
         width: 100%;
+
+        .btn--transparent {
+            display: none;
+        }
+    }
+
+    &__bg,
+    &__circle,
+    &__chess-behind,
+    &__mask,
+    &__chess,
+    &__chess-sm {
+        position: absolute;
+
+        aspect-ratio: 1/1;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
     }
 
     &__bg {
-        position: absolute;
-
-        top: 0;
+        bottom: 0;
         left: 0;
 
         width: 100%;
@@ -68,48 +86,56 @@
 
         z-index: 11;
 
-        aspect-ratio: 1/1;
-
         mix-blend-mode: color-burn;
 
         img {
-            width: 100%;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
         }
+    }
+
+    &__circle {
+        right: 25px;
+        bottom: 75px;
+
+        width: 349px;
+
+        z-index: 10;
+    }
+
+    &__chess-behind {
+        bottom: 205px;
+        right: 92px;
+        width: 54px;
+
+        transform: rotate(8deg);
+        z-index: 10;
     }
 
     &__mask {
-        position: absolute;
+        display: flex;
+        flex-shrink: 0;
 
-        left: 50%;
-        bottom: 21px;
+        right: -32px;
+        bottom: -216px;
 
-        transform: translateX(-50%);
-
-        width: 100%;
-        aspect-ratio: 1/1;
+        width: 750px;
 
         z-index: 10;
-
-        img {
-            width: 100%;
-            object-fit: contain;
-        }
     }
 
-    &__chees {
-        position: absolute;
-
-        left: 49%;
-        bottom: 30px;
-
-        width: 76px;
+    &__chess {
+        right: 93px;
+        bottom: 28px;
+        width: 91px;
         height: 121px;
 
         transform: translateX(-49%);
         z-index: 12;
+    }
 
-        aspect-ratio: 1/1;
+    &__chess-sm {
+        display: none;
     }
 
     &__tricker-wrapper {
@@ -129,7 +155,8 @@
         z-index: 12;
     }
 
-    &__tricker-first, &__tricker-second {
+    &__tricker-first, 
+    &__tricker-second {
         display: flex;
         align-items: center;
 
@@ -172,4 +199,164 @@
             transform: translate(-100%);
         }
     } 
+}
+
+@include rmin($tablet) {
+    .hero {
+        padding: 124px 0 190px;
+        &__info {
+            align-items: flex-start;
+            justify-content: center;
+            
+            padding-right: 206px;
+            
+            h1 {
+                width: 75%;
+                font-size: 45px;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+
+        &__info-action {
+            flex-direction: row;
+        }
+
+        &__mask {
+            width: 980px;
+            bottom: -294px;
+        }
+
+        &__circle {
+            right: -20px;
+            width: 420px;
+        }
+
+        &__chess-behind {
+            bottom: 247px;
+            right: 107px;
+            width: 70px;
+
+            transform: unset;
+        }
+    }
+}
+
+@include rmin($desktop-xs) {
+    .hero {
+        &__mask {
+            bottom: -402px;
+            width: 1300px;
+
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
+
+@include rmin($desktop) {
+    .hero {
+        &__info {
+            width: 614px;
+            padding-right: 0;
+            
+            h1 {
+                width: 100%;
+                font-size: 60px;
+            }
+        }
+
+        &__info-action {
+            gap: 16px;
+
+            .btn--transparent {
+                display: flex;
+            }
+
+            .btn--light {
+                display: none;
+            }
+        }
+
+        &__bg {
+            width: 143.8%;
+            height: 117.2%;
+        }
+
+        &__circle {
+            width: 776px;
+            bottom: 59px;
+        }
+
+        &__mask {
+            width: 100%;
+
+            right: 0;
+            bottom: 238px;
+            transform: translateY(54%);
+            aspect-ratio: unset;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        &__chess-sm {
+            display: block;
+
+            right: 10px;
+            bottom: 67px;
+
+            z-index: 12;
+        }
+
+        &__chess {
+            width: 141px;
+            right: 181px;
+            bottom: 99px;
+        }
+
+        &__chess-behind {
+            bottom: 228px;
+            right: 116px;
+
+            width: 135px;
+        }
+
+        &__tricker-wrapper {
+            height: 60px;
+        }
+
+        &__tricker-first,
+        &__tricker-second {
+            span {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@include rmin($desktop-lg) {
+    .hero {
+        &__mask {
+            bottom: 298px;
+        }
+
+        &__chess-behind {
+            bottom: 331px;
+            right: 166px;
+        }
+
+        &__chess-sm {
+            right: 37px;
+            bottom: 75px;
+        }
+
+        &__chess {
+            width: 197px;
+            right: 237px;
+            bottom: 155px;
+        }
+    }
 }
