@@ -8,27 +8,23 @@
 
         gap: 24px;
 
-        // h2 {
-        //     font-size: 28px;
-        //     line-height: 135%;
-        //     text-transform: uppercase;
-        // }
-    
-        // h2 span {
-        //     color: var(--primary-500);
-        // }
-    
-        &-title {
+        h2 {
             font-size: 28px;
             line-height: 135%;
             text-transform: uppercase;
+        }
+    
+        h2 span {
+            color: var(--primary-500);
+        }
 
-            span {
-                color: var(--primary-500);
-            }
+        h2:nth-child(2) {
+            order: 3;
         }
 
         &-img {
+            display: flex;
+            order: 2;
             width: 100%;
     
             img {
@@ -70,6 +66,7 @@
 
         &-info {
             margin-top: 19px;
+            padding: 0 20px;
 
             h2 {
                 font-size: 28px;
@@ -103,6 +100,7 @@
 
                 gap: 16px;
             }
+
             table tr {
                 position: relative;
                 margin-top: 16px;
@@ -151,6 +149,7 @@
 
             table tr td span {
                 position: relative;
+                margin-right: 6px;
             }
 
             table tr td span::after {
@@ -159,9 +158,9 @@
                 content: '';
 
                 top: 50%;
-                left: 0;
-
-                width: 100%;
+                left: -4px;
+                
+                width: 107%;
                 height: 2px;
 
                 background-color: var(--primary-500);
@@ -180,7 +179,7 @@
 
         &__description-img,
         &__event-img {
-            max-width: 450px;
+            width: 450px;
             margin: auto;
         }
     }
@@ -188,18 +187,104 @@
 
 @include rmin($desktop) {
     .about {
-        &__description {
-            //flex-direction: row;
+        padding: 80px 0 0;
 
-            &-title {
-                display: inline-grid;
-                flex-direction: row;
+        &__description {
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            gap: 0;
+
+            h2 {
+                display: contents;
                 padding-right: 0;
+
+                font-size: 36px;
             }
+
+            h2 span {
+                display: contents;
+            }
+
             
             &-img {
+                flex-shrink: 0;
                 order: 3;
-                display: inline-block;
+                margin-left: 114px;
+
+                width: 394px;
+                height: 250px;
+            }
+        }
+
+        &__event {
+            margin-top: 36px;
+            flex-direction: row;
+
+            &-img {
+                flex-shrink: 0;
+                padding-left: 45px;
+                
+                width: 609px;
+                height: 528px;
+            }
+
+            &-info {
+                margin-top: 47px;
+                padding: 0 72px 0 17px;
+            }
+
+            &-info h2 {
+                padding-right: 0;
+                font-size: 36px;
+            }
+
+            &-info p {
+                font-size: 20px;
+            }
+
+            &-table {
+                margin-top: 60px;
+                margin-bottom: 48px;
+            }
+
+            &-table table {
+                width: 95.2%;
+                overflow: hidden;
+            }
+
+            &-table table tbody tr {
+                flex-wrap: wrap;
+            }
+
+            &-table table tbody tr::after {
+                height: 2px;
+            }
+
+            &-table table tbody tr th, td {
+                width: 43.5%;
+            }
+
+            &-table table tbody tr td {
+                position: relative;
+            }
+
+            &-table table tbody tr td span {
+                margin-right: 12px;
+            }
+            &-table table tbody tr td::before {
+                position: absolute;
+
+                content: '';
+
+                top: -16px;
+                left: -16px;
+
+                width: 2px;
+                height: 226%;
+
+                background-color: var(--gray-100);
             }
         }
     }

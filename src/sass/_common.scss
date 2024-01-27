@@ -49,6 +49,11 @@ body {
     }
 
     @include rmin($desktop) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include rmin($desktop-lg) {
         padding-left: 72px;
         padding-right: 72px;
     }
